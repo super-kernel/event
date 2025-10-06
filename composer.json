@@ -1,0 +1,27 @@
+{
+    "name": "super-kernel/event",
+    "description": "The event for super-kernel.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "swoole",
+        "super-kernel",
+        "event"
+    ],
+    "autoload": {
+        "psr-4": {
+            "SuperKernel\\Event\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.4"
+    },
+    "authors": [
+        {
+            "name": "wheakerd",
+            "email": "wheakerd@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
