@@ -13,8 +13,8 @@ current bootstrap flow.
 
 The package defines one event:
 
-| Event | Boundary and payload |
-| --- | --- |
+| Event                    | Boundary and payload                                                                                                                                                             |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `BeforeApplicationStart` | The application has been created and is ready for component configuration before its factory returns it; `application()` returns the same application passed to the constructor. |
 
 Creating the event performs no startup or dispatch. Framework's `ApplicationProvider` publishes
