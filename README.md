@@ -1,13 +1,12 @@
+<p align="right">
+  <strong>English</strong> | <a href="README.zh-CN.md">中文文档</a>
+</p>
+
 # SuperKernel Event
 
-`super-kernel/event` defines the application startup event shared by SuperKernel runtimes and
-integrations. It contains declarations only: event creation, dispatch timing, listener discovery, propagation, and
-failure handling remain the responsibility of the runtime or component that publishes an event.
+`super-kernel/event` defines the application startup event shared by SuperKernel runtimes and integrations. It contains declarations only: event creation, dispatch timing, listener discovery, propagation, and failure handling remain the responsibility of the runtime or component that publishes an event.
 
-Every event lives directly under `SuperKernel\Event` and is a final readonly class implementing the methodless
-`SuperKernel\Contract\EventInterface` marker. The package
-depends only on `super-kernel/contract`; installing it does not select an event dispatcher implementation or change the
-current bootstrap flow.
+Every event lives directly under `SuperKernel\Event` and is a final readonly class implementing the methodless `SuperKernel\Contract\EventInterface` marker. The package depends only on `super-kernel/contract`; installing it does not select an event dispatcher implementation or change the current bootstrap flow.
 
 ## Startup events
 
@@ -17,21 +16,6 @@ The package defines one event:
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `BeforeApplicationStart` | The application has been created and is ready for component configuration before its factory returns it; `application()` returns the same application passed to the constructor. |
 
-Creating the event performs no startup or dispatch. Framework's `ApplicationProvider` publishes
-`BeforeApplicationStart` synchronously once for each application it creates, after installing the Symfony dispatcher
-and before returning the application. Listener failures propagate before the factory returns; this boundary does not
-call `ApplicationInterface::run()`.
+Creating the event performs no startup or dispatch. Framework's `ApplicationProvider` publishes `BeforeApplicationStart` synchronously once for each application it creates, after installing the Symfony dispatcher and before returning the application. Listener failures propagate before the factory returns; this boundary does not call `ApplicationInterface::run()`.
 
 Applications can define their own event types for additional lifecycle boundaries.
-
-## Development
-
-Use a PHP 8.4 Composer in this package's checkout:
-
-```bash
-composer install
-composer validate --strict
-composer test
-composer format:check
-composer format
-```
