@@ -19,7 +19,7 @@ The package defines two events:
 
 Creating the event performs no startup or dispatch. Framework's `ApplicationProvider` publishes `BeforeApplicationStart` synchronously once for each application it creates, after installing the Symfony dispatcher and before returning the application. Listener failures propagate before the factory returns; this boundary does not call `ApplicationInterface::run()`.
 
-SKernel's `build` command publishes `ApplicationBuild` once in the project's own process after creating its container, without creating or running the application. Listeners write their artifacts, such as prepared AOP proxies, so that a packaged application loads them instead of generating them. A listener failure fails the build.
+SKERNEL's `build` command publishes `ApplicationBuild` once in the project's own process after creating its container, without creating or running the application. Listeners write their artifacts, such as prepared AOP proxies, so that a packaged application loads them instead of generating them. A listener failure fails the build.
 
 ```php
 use SuperKernel\Attribute\Listener;
