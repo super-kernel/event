@@ -10,6 +10,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
 use SuperKernel\Contract\EventInterface;
+use SuperKernel\Event\ApplicationBuild;
 use SuperKernel\Event\BeforeApplicationStart;
 use Throwable;
 
@@ -52,6 +53,7 @@ final class EventInterfaceTest extends TestCase
         }
 
         self::assertEqualsCanonicalizing([
+            ApplicationBuild::class,
             BeforeApplicationStart::class,
         ], $eventClasses);
     }
