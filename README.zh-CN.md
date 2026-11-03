@@ -19,7 +19,7 @@
 
 创建事件不会触发启动或分发。Framework 的 `ApplicationProvider` 为它创建的每个应用同步发布一次 `BeforeApplicationStart`，时机在安装 Symfony 调度器之后、返回应用之前。监听器的失败会在工厂返回之前向外传播；这一边界不会调用 `ApplicationInterface::run()`。
 
-SKernel 的 `build` 命令在项目自己的进程中创建容器后发布一次 `ApplicationBuild`，不会创建或运行应用。监听器在此写入各自的产物（例如预先准备好的 AOP 代理），使打包后的应用直接加载它们，而不必再生成。任何监听器失败都会使构建失败。
+SKERNEL 的 `build` 命令在项目自己的进程中创建容器后发布一次 `ApplicationBuild`，不会创建或运行应用。监听器在此写入各自的产物（例如预先准备好的 AOP 代理），使打包后的应用直接加载它们，而不必再生成。任何监听器失败都会使构建失败。
 
 ```php
 use SuperKernel\Attribute\Listener;
